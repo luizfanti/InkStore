@@ -1,0 +1,44 @@
+{% extends 'base.html' %} {% block content %}
+<div class="page-content">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-10 offset-lg-1">
+        <div class="heading-section mb-4">
+          <h4>Lista de Vendas</h4>
+        </div>
+        <a href="{% url 'vendas:nova' %}" class="btn btn-success mb-3"
+          >Nova Venda</a
+        >
+        <table class="table table-dark table-striped">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Cliente</th>
+              <th>Funcionário</th>
+              <th>Data</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for venda in vendas %}
+            <tr>
+              <td>{{ venda.id }}</td>
+              <td>{{ venda.cliente.nome }}</td>
+              <td>{{ venda.funcionario.nome }}</td>
+              <td>{{ venda.dataVenda|date:"d/m/Y H:i" }}</td>
+              <td>
+                <a
+                  href="{% url 'vendas:excluir' venda.id %}"
+                  class="btn btn-danger btn-sm"
+                  >Excluir</a
+                >
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

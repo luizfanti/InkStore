@@ -1,0 +1,47 @@
+{% extends 'base.html' %} {% block content %}
+<div class="page-content">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-10 offset-lg-1">
+        <div class="heading-section mb-4">
+          <h4>Lista de Clientes</h4>
+        </div>
+        <a href="{% url 'clientes:novo' %}" class="btn btn-success mb-3"
+          >Novo Cliente</a
+        >
+        <table class="table table-dark table-striped">
+          <thead>
+            <tr>
+              <th>Nome</th>
+              <th>CPF</th>
+              <th>Email</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for cliente in clientes %}
+            <tr>
+              <td>{{ cliente.nome }}</td>
+              <td>{{ cliente.cpf }}</td>
+              <td>{{ cliente.email }}</td>
+              <td>
+                <a
+                  href="{% url 'clientes:editar' cliente.id %}"
+                  class="btn btn-warning btn-sm"
+                  >Editar</a
+                >
+                <a
+                  href="{% url 'clientes:excluir' cliente.id %}"
+                  class="btn btn-danger btn-sm"
+                  >Excluir</a
+                >
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

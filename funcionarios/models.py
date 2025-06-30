@@ -1,0 +1,16 @@
+from django.db import models
+from cidades.models import Cidade
+
+class Funcionario(models.Model):
+    nome = models.CharField(max_length=100)
+    cpf = models.CharField(max_length=14)
+    telefone = models.CharField(max_length=20)
+    endereco = models.CharField(max_length=100)
+    numero = models.CharField(max_length=10)
+    bairro = models.CharField(max_length=50)
+    email = models.EmailField()
+    senha = models.CharField(max_length=128)
+    cidade = models.ForeignKey(Cidade, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.nome

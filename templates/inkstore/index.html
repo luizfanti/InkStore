@@ -1,0 +1,156 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>InkStore</title>
+
+    <!-- Bootstrap core CSS -->
+    <link
+      href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}"
+      rel="stylesheet"
+    />
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="{% static 'assets/css/fontawesome.css' %}" />
+    <link
+      rel="stylesheet"
+      href="{% static 'assets/css/templatemo-cyborg-gaming.css' %}"
+    />
+    <link rel="stylesheet" href="{% static 'assets/css/owl.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/css/animate.css' %}" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper@7/swiper-bundle.min.css"
+    />
+  </head>
+
+  <body>
+    <div id="js-preloader" class="js-preloader">
+      <div class="preloader-inner">
+        <span class="dot"></span>
+        <div class="dots"><span></span><span></span><span></span></div>
+      </div>
+    </div>
+
+    <header class="header-area header-sticky">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <nav class="main-nav">
+              <a href="index.html" class="logo">
+                <img src="{% static 'assets/images/logo.png' %}" alt="" />
+              </a>
+              <div class="search-input">
+                <form id="search" action="#">
+                  <input
+                    type="text"
+                    placeholder="Type Something"
+                    id="searchText"
+                    name="searchKeyword"
+                    onkeypress="handle"
+                  />
+                  <i class="fa fa-search"></i>
+                </form>
+              </div>
+              <ul class="nav">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="cidades.html">Cidades</a></li>
+                <li><a href="details.html">Details</a></li>
+                <li><a href="streams.html">Streams</a></li>
+                <li>
+                  <a href="profile.html">
+                    Profile
+                    <img
+                      src="{% static 'assets/images/profile-header.jpg' %}"
+                      alt=""
+                    />
+                  </a>
+                </li>
+              </ul>
+              <a class="menu-trigger"><span>Menu</span></a>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="page-content">
+            <div class="main-banner">
+              <div class="row">
+                <div class="col-lg-7">
+                  <div class="header-text">
+                    <h6>Welcome To Cyborg</h6>
+                    <h4><em>Browse</em> Our Popular Games Here</h4>
+                    <div class="main-button">
+                      <a href="browse.html">Browse Now</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="most-popular">
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="heading-section">
+                    <h4><em>Most Popular</em> Right Now</h4>
+                  </div>
+                  <div class="row">
+                    {% for i in "12345678"|make_list %}
+                    <div class="col-lg-3 col-sm-6">
+                      <div class="item">
+                        <img
+                          src="{% static 'assets/images/popular-0'|add:i|stringformat:'s'|add:'.jpg' %}"
+                          alt=""
+                        />
+                        <h4>Game {{ i }}<br /><span>Category</span></h4>
+                        <ul>
+                          <li><i class="fa fa-star"></i> 4.8</li>
+                          <li><i class="fa fa-download"></i> 2.3M</li>
+                        </ul>
+                      </div>
+                    </div>
+                    {% endfor %}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <p>&copy; 2025 – InkStore</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'assets/js/isotope.min.js' %}"></script>
+    <script src="{% static 'assets/js/owl-carousel.js' %}"></script>
+    <script src="{% static 'assets/js/tabs.js' %}"></script>
+    <script src="{% static 'assets/js/popup.js' %}"></script>
+    <script src="{% static 'assets/js/custom.js' %}"></script>
+  </body>
+</html>

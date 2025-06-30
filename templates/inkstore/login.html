@@ -1,0 +1,77 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Login - InkStore</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="{% static 'assets/css/fontawesome.css' %}" />
+    <link
+      rel="stylesheet"
+      href="{% static 'assets/css/templatemo-cyborg-gaming.css' %}"
+    />
+    <link rel="stylesheet" href="{% static 'assets/css/owl.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/css/animate.css' %}" />
+  </head>
+  <body style="background-color: #1f2122">
+    <div class="page-content">
+      <div class="container">
+        <div
+          class="row justify-content-center align-items-center"
+          style="min-height: 100vh"
+        >
+          <div class="col-md-6">
+            <div class="heading-section text-center mb-4">
+              <h4>Login</h4>
+            </div>
+
+            {% if erro %}
+            <div class="alert alert-danger">{{ erro }}</div>
+            {% endif %}
+
+            <form method="post">
+              {% csrf_token %}
+              <div class="form-group mb-3">
+                <label>Email:</label>
+                <input
+                  type="email"
+                  name="email"
+                  class="form-control"
+                  placeholder="Digite seu email"
+                  required
+                />
+              </div>
+              <div class="form-group mb-4">
+                <label>Senha:</label>
+                <input
+                  type="password"
+                  name="senha"
+                  class="form-control"
+                  placeholder="Digite sua senha"
+                  required
+                />
+              </div>
+              <button type="submit" class="btn btn-primary w-100">
+                Entrar
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+  </body>
+</html>

@@ -1,0 +1,51 @@
+{% extends 'base.html' %} {% block content %}
+<div class="page-content">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 offset-lg-2">
+        <div class="heading-section mb-4">
+          <h4>{% if produto %}Editar{% else %}Novo{% endif %} Produto</h4>
+        </div>
+        <form method="post">
+          {% csrf_token %}
+          <div class="form-group mb-3">
+            <label>Descrição:</label>
+            <input
+              type="text"
+              name="descricao"
+              class="form-control"
+              value="{{ produto.descricao|default:'' }}"
+            />
+          </div>
+          <div class="form-group mb-3">
+            <label>Preço:</label>
+            <input
+              type="number"
+              step="0.01"
+              name="preco"
+              class="form-control"
+              value="{{ produto.preco|default:'' }}"
+            />
+          </div>
+          <div class="form-group mb-3">
+            <label>Quantidade:</label>
+            <input
+              type="number"
+              name="quantidade"
+              class="form-control"
+              value="{{ produto.quantidade|default:'' }}"
+            />
+          </div>
+          <div class="form-group mb-4">
+            <label>Observação:</label>
+            <textarea name="observacao" class="form-control">
+{{ produto.observacao|default:'' }}</textarea
+            >
+          </div>
+          <button type="submit" class="btn btn-primary">Salvar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="page-content">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 offset-lg-3">
+        <div class="heading-section mb-4">
+          <h4>{% if cidade %}Editar{% else %}Nova{% endif %} Cidade</h4>
+        </div>
+        <form method="post">
+          {% csrf_token %}
+          <div class="form-group mb-3">
+            <label>Nome:</label>
+            <input type="text" name="nome" class="form-control" value="{{ cidade.nome|default:'' }}">
+          </div>
+          <div class="form-group mb-4">
+            <label>Estado:</label>
+            <select name="estado" class="form-select">
+              {% for e in estados %}
+              <option value="{{ e.id }}" {% if cidade.estado.id == e.id %}selected{% endif %}>{{ e.nome }}</option>
+              {% endfor %}
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary">Salvar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
